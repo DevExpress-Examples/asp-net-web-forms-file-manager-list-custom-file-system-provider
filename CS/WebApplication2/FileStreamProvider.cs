@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using DevExpress.Web.ASPxFileManager;
+using DevExpress.Web;
 using System.IO;
-using DevExpress.Web.ASPxClasses.Internal;
+using DevExpress.Web.Internal;
 using System.Reflection;
 using WebApplication2;
 

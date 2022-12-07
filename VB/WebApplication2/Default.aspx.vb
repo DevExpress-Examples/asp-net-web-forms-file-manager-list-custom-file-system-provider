@@ -5,7 +5,7 @@ Imports System.Linq
 Imports System.Web
 Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports DevExpress.Web.ASPxFileManager
+Imports DevExpress.Web
 Imports WebApplication2
 
 Partial Public Class [Default]

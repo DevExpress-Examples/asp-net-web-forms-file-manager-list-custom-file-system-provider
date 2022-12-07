@@ -5,9 +5,9 @@ Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
 Imports System.Web.UI
-Imports DevExpress.Web.ASPxFileManager
+Imports DevExpress.Web
 Imports System.IO
-Imports DevExpress.Web.ASPxClasses.Internal
+Imports DevExpress.Web.Internal
 Imports System.Reflection
 Imports WebApplication2
 

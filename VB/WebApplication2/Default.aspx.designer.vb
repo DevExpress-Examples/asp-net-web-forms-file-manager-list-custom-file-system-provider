@@ -30,5 +30,5 @@ Partial Public Class [Default]
 	''' Auto-generated field.
 	''' To modify move field declaration from designer file to code-behind file.
 	''' </remarks>
-	Protected fileManager As Global.DevExpress.Web.ASPxFileManager.ASPxFileManager
+	Protected fileManager As Global.DevExpress.Web.ASPxFileManager
 End Class
