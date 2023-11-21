@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# File Manager for ASP.NET Web Forms - How to implement a custom file system provider for List data source
+# File Manager for ASP.NET Web Forms - How to implement a custom file system provider for a List data source
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/e5024/)**
 <!-- run online end -->
