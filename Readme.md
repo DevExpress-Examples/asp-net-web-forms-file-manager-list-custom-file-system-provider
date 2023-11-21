@@ -8,7 +8,7 @@
 **[[Run Online]](https://codecentral.devexpress.com/e5024/)**
 <!-- run online end -->
 
-This example demonstrates how to implement a custom file system provider that bounds [ASPxFileManager](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxFileManager) to a List data source. To persist data between requests, list is stored in the Session.
+This example demonstrates how to implement a custom file system provider that bounds [ASPxFileManager](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxFileManager) to a List data source. To persist data between requests, the list is stored in the Session.
 ## Files to Review
 
 * [Default.aspx](./CS/WebApplication2/Default.aspx) (VB: [Default.aspx](./VB/WebApplication2/Default.aspx))
