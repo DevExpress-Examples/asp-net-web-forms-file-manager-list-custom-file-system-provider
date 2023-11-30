@@ -21,4 +21,4 @@ This example demonstrates how to implement a custom file system provider that bo
 
 ## More Examples
 
-* [File Manager for ASP.NET Web Forms - How to implement a custom file system provider for LINQ to SQL data source](https://github.com/DevExpress-Examples/asp-net-web-forms-filemanager-linq-to-sql-file-system-provider)
+* [File Manager for ASP.NET Web Forms - How to implement a custom file system provider for LINQ to SQL data source](https://github.com/DevExpress-Examples/asp-net-web-forms-file-manager-linq-to-sql-custom-file-system-provider)
