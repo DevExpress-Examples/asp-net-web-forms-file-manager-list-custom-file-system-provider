@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Default" %>
 
-<%@ Register Namespace="DevExpress.Web" TagPrefix="dx" Assembly="DevExpress.Web.v22.2, Version=22.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register Namespace="DevExpress.Web" TagPrefix="dx" Assembly="DevExpress.Web.v24.2, Version=24.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

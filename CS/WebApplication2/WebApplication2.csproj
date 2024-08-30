@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57D37008-F626-4B52-B1F8-39CC598EA056}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -14,10 +13,8 @@
     <RootNamespace>WebApplication2</RootNamespace>
     <AssemblyName>WebApplication2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
     <OldToolsVersion>4.5.2</OldToolsVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
@@ -48,74 +45,40 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.Drawing.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Data.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Office.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.PivotGrid.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.Pdf.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v22.2.Export">
-    </Reference>
-    <Reference Include="DevExpress.Printing.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.SpellChecker.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.Data.Desktop.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Utils.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Utils.v22.2.UI">
-    </Reference>
-    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Web.ASPxSpellChecker.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Web.ASPxGantt.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Web.ASPxTreeList.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Web.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraBars.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraCharts.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraCharts.v22.2.Wizard">
-    </Reference>
-    <Reference Include="DevExpress.XtraEditors.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraNavBar.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.Sparkline.v22.2.Core">
-    </Reference>
-    <Reference Include="DevExpress.CodeParser.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2.Extensions">
-    </Reference>
-    <Reference Include="DevExpress.Web.Resources.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2.Web.WebForms">
-    </Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2.Web">
-    </Reference>
-    <Reference Include="DevExpress.XtraSpellChecker.v22.2">
-    </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v22.2">
-    </Reference>
+    <Reference Include="DevExpress.Charts.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.Drawing.v24.2"></Reference>
+    <Reference Include="DevExpress.Data.v24.2"></Reference>
+    <Reference Include="DevExpress.Office.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.PivotGrid.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.Pdf.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.RichEdit.v24.2.Export"></Reference>
+    <Reference Include="DevExpress.Printing.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.RichEdit.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.SpellChecker.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.Data.Desktop.v24.2"></Reference>
+    <Reference Include="DevExpress.Utils.v24.2"></Reference>
+    <Reference Include="DevExpress.Utils.v24.2.UI"></Reference>
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v24.2"></Reference>
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v24.2"></Reference>
+    <Reference Include="DevExpress.Web.ASPxGantt.v24.2"></Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v24.2"></Reference>
+    <Reference Include="DevExpress.Web.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraBars.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraCharts.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraCharts.v24.2.Wizard"></Reference>
+    <Reference Include="DevExpress.XtraEditors.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraNavBar.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraPrinting.v24.2"></Reference>
+    <Reference Include="DevExpress.Sparkline.v24.2.Core"></Reference>
+    <Reference Include="DevExpress.CodeParser.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraReports.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraReports.v24.2.Extensions"></Reference>
+    <Reference Include="DevExpress.Web.Resources.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraReports.v24.2.Web.WebForms"></Reference>
+    <Reference Include="DevExpress.XtraReports.v24.2.Web"></Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v24.2"></Reference>
+    <Reference Include="DevExpress.XtraTreeList.v24.2"></Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -172,12 +135,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64877</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl></IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
