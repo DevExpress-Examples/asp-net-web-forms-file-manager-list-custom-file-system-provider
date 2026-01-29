@@ -6,29 +6,23 @@
 '     the code is regenerated. 
 ' </auto-generated>
 '------------------------------------------------------------------------------
+Public Partial Class [Default]
 
+    ''' <summary>
+    ''' form1 control.
+    ''' </summary>
+    ''' <remarks>
+    ''' Auto-generated field.
+    ''' To modify move field declaration from designer file to code-behind file.
+    ''' </remarks>
+    Protected form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
-
-
-Imports Microsoft.VisualBasic
-Imports System
-Partial Public Class [Default]
-
-	''' <summary>
-	''' form1 control.
-	''' </summary>
-	''' <remarks>
-	''' Auto-generated field.
-	''' To modify move field declaration from designer file to code-behind file.
-	''' </remarks>
-	Protected form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
-	''' <summary>
-	''' fileManager control.
-	''' </summary>
-	''' <remarks>
-	''' Auto-generated field.
-	''' To modify move field declaration from designer file to code-behind file.
-	''' </remarks>
-	Protected fileManager As Global.DevExpress.Web.ASPxFileManager
+    ''' <summary>
+    ''' fileManager control.
+    ''' </summary>
+    ''' <remarks>
+    ''' Auto-generated field.
+    ''' To modify move field declaration from designer file to code-behind file.
+    ''' </remarks>
+    Protected fileManager As Global.DevExpress.Web.ASPxFileManager
 End Class
