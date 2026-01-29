@@ -1,82 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion></ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57D37008-F626-4B52-B1F8-39CC598EA056}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace></RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>WebApplication2</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>Off</OptionStrict>
-    <OptionInfer>On</OptionInfer>
-    <FileUpgradeFlags></FileUpgradeFlags>
-    <UpgradeBackupLocation></UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.5.2</OldToolsVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
+    <DefineConstants>DEBUG,TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.Drawing.v22.2"></Reference>
-    <Reference Include="DevExpress.Data.v22.2"></Reference>
-    <Reference Include="DevExpress.Office.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.PivotGrid.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.Pdf.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.RichEdit.v22.2.Export"></Reference>
-    <Reference Include="DevExpress.Printing.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.RichEdit.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.SpellChecker.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.Data.Desktop.v22.2"></Reference>
-    <Reference Include="DevExpress.Utils.v22.2"></Reference>
-    <Reference Include="DevExpress.Utils.v22.2.UI"></Reference>
-    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v22.2"></Reference>
-    <Reference Include="DevExpress.Web.ASPxSpellChecker.v22.2"></Reference>
-    <Reference Include="DevExpress.Web.ASPxGantt.v22.2"></Reference>
-    <Reference Include="DevExpress.Web.ASPxTreeList.v22.2"></Reference>
-    <Reference Include="DevExpress.Web.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraBars.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraCharts.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraCharts.v22.2.Wizard"></Reference>
-    <Reference Include="DevExpress.XtraEditors.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraNavBar.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraPrinting.v22.2"></Reference>
-    <Reference Include="DevExpress.Sparkline.v22.2.Core"></Reference>
-    <Reference Include="DevExpress.CodeParser.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2.Extensions"></Reference>
-    <Reference Include="DevExpress.Web.Resources.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2.Web.WebForms"></Reference>
-    <Reference Include="DevExpress.XtraReports.v22.2.Web"></Reference>
-    <Reference Include="DevExpress.XtraSpellChecker.v22.2"></Reference>
-    <Reference Include="DevExpress.XtraTreeList.v22.2"></Reference>
+    <Reference Include="DevExpress.Charts.v22.2.Core" />
+    <Reference Include="DevExpress.Drawing.v22.2" />
+    <Reference Include="DevExpress.Data.v22.2" />
+    <Reference Include="DevExpress.Office.v22.2.Core" />
+    <Reference Include="DevExpress.PivotGrid.v22.2.Core" />
+    <Reference Include="DevExpress.Pdf.v22.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v22.2.Export" />
+    <Reference Include="DevExpress.Printing.v22.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v22.2.Core" />
+    <Reference Include="DevExpress.SpellChecker.v22.2.Core" />
+    <Reference Include="DevExpress.Data.Desktop.v22.2" />
+    <Reference Include="DevExpress.Utils.v22.2" />
+    <Reference Include="DevExpress.Utils.v22.2.UI" />
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v22.2" />
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v22.2" />
+    <Reference Include="DevExpress.Web.ASPxGantt.v22.2" />
+    <Reference Include="DevExpress.Web.ASPxTreeList.v22.2" />
+    <Reference Include="DevExpress.Web.v22.2" />
+    <Reference Include="DevExpress.XtraBars.v22.2" />
+    <Reference Include="DevExpress.XtraCharts.v22.2" />
+    <Reference Include="DevExpress.XtraCharts.v22.2.Wizard" />
+    <Reference Include="DevExpress.XtraEditors.v22.2" />
+    <Reference Include="DevExpress.XtraNavBar.v22.2" />
+    <Reference Include="DevExpress.XtraPivotGrid.v22.2" />
+    <Reference Include="DevExpress.XtraPrinting.v22.2" />
+    <Reference Include="DevExpress.Sparkline.v22.2.Core" />
+    <Reference Include="DevExpress.CodeParser.v22.2" />
+    <Reference Include="DevExpress.XtraReports.v22.2" />
+    <Reference Include="DevExpress.XtraReports.v22.2.Extensions" />
+    <Reference Include="DevExpress.Web.Resources.v22.2" />
+    <Reference Include="DevExpress.XtraReports.v22.2.Web.WebForms" />
+    <Reference Include="DevExpress.XtraReports.v22.2.Web" />
+    <Reference Include="DevExpress.XtraSpellChecker.v22.2" />
+    <Reference Include="DevExpress.XtraTreeList.v22.2" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -114,7 +121,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="FileStreamProvider.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Properties\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
@@ -133,16 +140,18 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64877</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl></IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

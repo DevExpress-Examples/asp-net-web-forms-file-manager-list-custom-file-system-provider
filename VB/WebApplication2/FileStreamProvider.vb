@@ -1,4 +1,3 @@
-Imports Microsoft.VisualBasic
 Imports System
 Imports System.Collections
 Imports System.Collections.Generic
@@ -12,109 +11,113 @@ Imports System.Reflection
 Imports WebApplication2
 
 Public Class FileStreamProvider
-	Inherits FileSystemProviderBase
-	Private root As New FileSystemData()
-	Private ReadOnly Property DataSource() As List(Of FileSystemData)
-		Get
-			Return CType(HttpContext.Current.Session("DataSource"), List(Of FileSystemData))
-		End Get
-	End Property
+    Inherits DevExpress.Web.FileSystemProviderBase
 
-	Public Sub New(ByVal rootFolder As String)
-		MyBase.New(rootFolder)
-	End Sub
+    Private root As WebApplication2.FileSystemData = New WebApplication2.FileSystemData()
 
-	Public Overrides ReadOnly Property RootFolderDisplayName() As String
-		Get
-			Return GetRootFolder().Name
-		End Get
-	End Property
+    Private ReadOnly Property DataSource As List(Of WebApplication2.FileSystemData)
+        Get
+            Return CType(System.Web.HttpContext.Current.Session("DataSource"), System.Collections.Generic.List(Of WebApplication2.FileSystemData))
+        End Get
+    End Property
 
-	Public Overrides Sub CreateFolder(ByVal parent As FileManagerFolder, ByVal name As String)
-		DataSource.Add(New FileSystemData() With {.Id = GetHashCode(), .IsFolder = True, .LastWriteTime = DateTime.Now, .Name = name, .ParentId = FindFolderItem(parent).Id})
-	End Sub
-	Public Overrides Sub DeleteFile(ByVal file As FileManagerFile)
-		Dim item As FileSystemData = FindFileItem(file)
-		DataSource.Remove(item)
-	End Sub
-	Public Overrides Sub DeleteFolder(ByVal folder As FileManagerFolder)
-		Dim item As FileSystemData = FindFolderItem(folder)
-		DataSource.Remove(item)
-	End Sub
-	Public Overrides Sub MoveFile(ByVal file As FileManagerFile, ByVal newParentFolder As FileManagerFolder)
-		Dim item As FileSystemData = FindFileItem(file)
-		item.ParentId = FindFolderItem(newParentFolder).Id
-	End Sub
-	Public Overrides Sub MoveFolder(ByVal folder As FileManagerFolder, ByVal newParentFolder As FileManagerFolder)
-		Dim item As FileSystemData = FindFolderItem(folder)
-		item.ParentId = FindFolderItem(newParentFolder).Id
-	End Sub
-	Public Overrides Sub RenameFile(ByVal file As FileManagerFile, ByVal name As String)
-		Dim item As FileSystemData = FindFileItem(file)
-		item.Name = name
-	End Sub
-	Public Overrides Sub RenameFolder(ByVal folder As FileManagerFolder, ByVal name As String)
-		Dim item As FileSystemData = FindFolderItem(folder)
-		item.Name = name
-	End Sub
-	Public Overrides Sub UploadFile(ByVal folder As FileManagerFolder, ByVal fileName As String, ByVal content As Stream)
-		DataSource.Add(New FileSystemData() With {.Id = GetHashCode(), .IsFolder = False, .LastWriteTime = DateTime.Now, .Name = fileName, .ParentId = FindFolderItem(folder).Id})
-	End Sub
+    Public Sub New(ByVal rootFolder As String)
+        MyBase.New(rootFolder)
+    End Sub
 
-	Public Overrides Function GetFolders(ByVal parentFolder As FileManagerFolder) As IEnumerable(Of FileManagerFolder)
-		Dim dbFolderItem As FileSystemData = FindFolderItem(parentFolder)
-		Return From dbItem In DataSource _
-		       Where dbItem.IsFolder AndAlso dbItem.ParentId = dbFolderItem.Id _
-		       Select New FileManagerFolder(Me, parentFolder, dbItem.Name)
-	End Function
-	Public Overrides Function GetFiles(ByVal folder As FileManagerFolder) As IEnumerable(Of FileManagerFile)
-		Dim folderItem As FileSystemData = FindFolderItem(folder)
-		Return From dbItem In DataSource _
-		       Where (Not dbItem.IsFolder) AndAlso dbItem.ParentId = folderItem.Id _
-		       Select New FileManagerFile(Me, folder, dbItem.Name)
-	End Function
-	Public Overrides Function Exists(ByVal file As FileManagerFile) As Boolean
-		Return FindFileItem(file) IsNot Nothing
-	End Function
-	Public Overrides Function Exists(ByVal folder As FileManagerFolder) As Boolean
-		Return FindFolderItem(folder) IsNot Nothing
-	End Function
-	Public Overrides Function ReadFile(ByVal file As FileManagerFile) As System.IO.Stream
-		Return New MemoryStream(FindFileItem(file).Data.ToArray())
-	End Function
-	Public Overrides Function GetLastWriteTime(ByVal file As FileManagerFile) As DateTime
-		Dim dbFileItem = FindFileItem(file)
-		Return dbFileItem.LastWriteTime.GetValueOrDefault(DateTime.Now)
-	End Function
-	Private Function GetRootFolder() As FileSystemData
-		Return DataSource.Where(Function(x) x.IsFolder AndAlso x.ParentId Is Nothing).FirstOrDefault()
-	End Function
-	Protected Function FindFolderItem(ByVal folder As FileManagerFolder) As FileSystemData
-		Dim folders = DataSource.Where(Function(x) x.IsFolder)
-		Return (From item In folders _
-		        Where item.IsFolder AndAlso GetRelativeName(item) = folder.RelativeName _
-		        Select item).FirstOrDefault()
-	End Function
-	Protected Function GetRelativeName(ByVal folder As FileSystemData) As String
-		Dim root As FileSystemData = GetRootFolder()
-		If folder.Id = root.Id Then
-			Return String.Empty
-		End If
-		If folder.ParentId = root.Id Then
-			Return folder.Name
-		End If
-		Dim folders = DataSource.Where(Function(x) x.IsFolder)
-		Dim name As String = GetRelativeName(folders.Where(Function(x) x.Id = folder.ParentId).FirstOrDefault())
-		Return If(name Is Nothing, Nothing, Path.Combine(name, folder.Name))
-	End Function
-	Protected Function FindFileItem(ByVal file As FileManagerFile) As FileSystemData
-		Dim folderItem As FileSystemData = FindFolderItem(file.Folder)
-		Dim files As List(Of FileSystemData) = DataSource.Where(Function(x) (Not x.IsFolder)).ToList()
-		If folderItem Is Nothing Then
-			Return Nothing
-		End If
-		Return (From dbItem In files _
-		        Where dbItem.ParentId = folderItem.Id AndAlso (Not dbItem.IsFolder) AndAlso dbItem.Name = file.Name _
-		        Select dbItem).FirstOrDefault()
-	End Function
+    Public Overrides ReadOnly Property RootFolderDisplayName As String
+        Get
+            Return Me.GetRootFolder().Name
+        End Get
+    End Property
+
+    Public Overrides Sub CreateFolder(ByVal parent As DevExpress.Web.FileManagerFolder, ByVal name As String)
+        Me.DataSource.Add(New WebApplication2.FileSystemData() With {.Id = Me.GetHashCode(), .IsFolder = True, .LastWriteTime = System.DateTime.Now, .Name = name, .ParentId = Me.FindFolderItem(CType((parent), DevExpress.Web.FileManagerFolder)).Id})
+    End Sub
+
+    Public Overrides Sub DeleteFile(ByVal file As DevExpress.Web.FileManagerFile)
+        Dim item As WebApplication2.FileSystemData = Me.FindFileItem(file)
+        Me.DataSource.Remove(item)
+    End Sub
+
+    Public Overrides Sub DeleteFolder(ByVal folder As DevExpress.Web.FileManagerFolder)
+        Dim item As WebApplication2.FileSystemData = Me.FindFolderItem(folder)
+        Me.DataSource.Remove(item)
+    End Sub
+
+    Public Overrides Sub MoveFile(ByVal file As DevExpress.Web.FileManagerFile, ByVal newParentFolder As DevExpress.Web.FileManagerFolder)
+        Dim item As WebApplication2.FileSystemData = Me.FindFileItem(file)
+        item.ParentId = Me.FindFolderItem(CType((newParentFolder), DevExpress.Web.FileManagerFolder)).Id
+    End Sub
+
+    Public Overrides Sub MoveFolder(ByVal folder As DevExpress.Web.FileManagerFolder, ByVal newParentFolder As DevExpress.Web.FileManagerFolder)
+        Dim item As WebApplication2.FileSystemData = Me.FindFolderItem(folder)
+        item.ParentId = Me.FindFolderItem(CType((newParentFolder), DevExpress.Web.FileManagerFolder)).Id
+    End Sub
+
+    Public Overrides Sub RenameFile(ByVal file As DevExpress.Web.FileManagerFile, ByVal name As String)
+        Dim item As WebApplication2.FileSystemData = Me.FindFileItem(file)
+        item.Name = name
+    End Sub
+
+    Public Overrides Sub RenameFolder(ByVal folder As DevExpress.Web.FileManagerFolder, ByVal name As String)
+        Dim item As WebApplication2.FileSystemData = Me.FindFolderItem(folder)
+        item.Name = name
+    End Sub
+
+    Public Overrides Sub UploadFile(ByVal folder As DevExpress.Web.FileManagerFolder, ByVal fileName As String, ByVal content As System.IO.Stream)
+        Me.DataSource.Add(New WebApplication2.FileSystemData() With {.Id = Me.GetHashCode(), .IsFolder = False, .LastWriteTime = System.DateTime.Now, .Name = fileName, .ParentId = Me.FindFolderItem(CType((folder), DevExpress.Web.FileManagerFolder)).Id})
+    End Sub
+
+    Public Overrides Function GetFolders(ByVal parentFolder As DevExpress.Web.FileManagerFolder) As IEnumerable(Of DevExpress.Web.FileManagerFolder)
+        Dim dbFolderItem As WebApplication2.FileSystemData = Me.FindFolderItem(parentFolder)
+        Return From dbItem In Me.DataSource Where dbItem.IsFolder AndAlso dbItem.ParentId = dbFolderItem.Id Select New DevExpress.Web.FileManagerFolder(Me, parentFolder, dbItem.Name)
+    End Function
+
+    Public Overrides Function GetFiles(ByVal folder As DevExpress.Web.FileManagerFolder) As IEnumerable(Of DevExpress.Web.FileManagerFile)
+        Dim folderItem As WebApplication2.FileSystemData = Me.FindFolderItem(folder)
+        Return From dbItem In Me.DataSource Where Not dbItem.IsFolder AndAlso dbItem.ParentId = folderItem.Id Select New DevExpress.Web.FileManagerFile(Me, folder, dbItem.Name)
+    End Function
+
+    Public Overrides Function Exists(ByVal file As DevExpress.Web.FileManagerFile) As Boolean
+        Return Me.FindFileItem(file) IsNot Nothing
+    End Function
+
+    Public Overrides Function Exists(ByVal folder As DevExpress.Web.FileManagerFolder) As Boolean
+        Return Me.FindFolderItem(folder) IsNot Nothing
+    End Function
+
+    Public Overrides Function ReadFile(ByVal file As DevExpress.Web.FileManagerFile) As System.IO.Stream
+        Return New System.IO.MemoryStream(Me.FindFileItem(CType((file), DevExpress.Web.FileManagerFile)).Data.ToArray())
+    End Function
+
+    Public Overrides Function GetLastWriteTime(ByVal file As DevExpress.Web.FileManagerFile) As DateTime
+        Dim dbFileItem = Me.FindFileItem(file)
+        Return dbFileItem.LastWriteTime.GetValueOrDefault(System.DateTime.Now)
+    End Function
+
+    Private Function GetRootFolder() As FileSystemData
+        Return Me.DataSource.Where(Function(x) x.IsFolder AndAlso x.ParentId Is Nothing).FirstOrDefault()
+    End Function
+
+    Protected Function FindFolderItem(ByVal folder As DevExpress.Web.FileManagerFolder) As FileSystemData
+        Dim folders = Me.DataSource.Where(Function(x) x.IsFolder)
+        Return(From item In folders Where item.IsFolder AndAlso Equals(Me.GetRelativeName(item), folder.RelativeName) Select item).FirstOrDefault()
+    End Function
+
+    Protected Function GetRelativeName(ByVal folder As WebApplication2.FileSystemData) As String
+        Dim root As WebApplication2.FileSystemData = Me.GetRootFolder()
+        If folder.Id = root.Id Then Return String.Empty
+        If folder.ParentId = root.Id Then Return folder.Name
+        Dim folders = Me.DataSource.Where(Function(x) x.IsFolder)
+        Dim name As String = Me.GetRelativeName(folders.Where(Function(x) x.Id = folder.ParentId).FirstOrDefault())
+        Return If(Equals(name, Nothing), Nothing, System.IO.Path.Combine(name, folder.Name))
+    End Function
+
+    Protected Function FindFileItem(ByVal file As DevExpress.Web.FileManagerFile) As FileSystemData
+        Dim folderItem As WebApplication2.FileSystemData = Me.FindFolderItem(file.Folder)
+        Dim files As System.Collections.Generic.List(Of WebApplication2.FileSystemData) = Me.DataSource.Where(Function(x) Not x.IsFolder).ToList()
+        If folderItem Is Nothing Then Return Nothing
+        Return(From dbItem In files Where dbItem.ParentId = folderItem.Id AndAlso Not dbItem.IsFolder AndAlso Equals(dbItem.Name, file.Name) Select dbItem).FirstOrDefault()
+    End Function
 End Class
